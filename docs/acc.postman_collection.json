@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "13b434e5-9e93-470f-b209-68f8d2344f40",
+		"name": "acc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "x-api-key",
+								"value": "123456"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"foo@foo.com\",\n    \"firstName\": \"Foo person\",\n    \"lastName\": \"Foo last\",\n    \"password\": \"123456\",\n    \"passwordConfirmation\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQzNzAzNGIzLTZlODItNDMzMi1iMTM1LWY5ZTIwM2FhM2ViYSIsImVtYWlsIjoic29tbW9zQGhpYmVydXMuY29tIiwiZGF0ZSI6MTYxNjQwMzcwNDUzNywiaWF0IjoxNjE2NDAzNzA0LCJleHAiOjE2MTcwMDg1MDR9.-izVyGIQSCW9v0VgeSGzsv-b8BbeOnU8-EZWLl0tdpU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "x-api-key",
+								"value": "123456"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNzhhN2JiLWU0MjUtNDA1NC04NTkwLTEwNzkzY2Y1ZTYyYyIsImlhdCI6MTYyMDU2ODkyMSwiZXhwIjoxNjIwNTcyNTIxfQ.bnKXRAxe5dcD9CWdytJ32QRFKBIOTBGXlZ4VVuobvvE"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3002/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "x-api-key",
+								"value": "123456"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"foo@foo.com\",\"password\":\"123456\"}"
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "public",
+					"item": [
+						{
+							"name": "create subscription",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "x-api-key",
+										"value": "123456"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"email\":\"fooemail@foo.com\",\"dateOfBirth\":\"2020-01-01\",\"consent\":true,\"campaignId\":\"123456\",\"firstName\":\"Amos\",\"gender\":\"Male\"}"
+								},
+								"url": {
+									"raw": "http://localhost:3002/api/subscription/subscription",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"subscription",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revoke subscription :id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "x-api-key",
+										"value": "123456"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3002/api/subscription/subscription/5dab887b-a295-4d26-9daa-a3b9b22f9e25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"subscription",
+										"subscription",
+										"5dab887b-a295-4d26-9daa-a3b9b22f9e25"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Private",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQzNzAzNGIzLTZlODItNDMzMi1iMTM1LWY5ZTIwM2FhM2ViYSIsImVtYWlsIjoic29tbW9zQGhpYmVydXMuY29tIiwiZGF0ZSI6MTYxNjQwMzcwNDUzNywiaWF0IjoxNjE2NDAzNzA0LCJleHAiOjE2MTcwMDg1MDR9.-izVyGIQSCW9v0VgeSGzsv-b8BbeOnU8-EZWLl0tdpU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "x-api-key",
+										"value": "123456"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNzhhN2JiLWU0MjUtNDA1NC04NTkwLTEwNzkzY2Y1ZTYyYyIsImlhdCI6MTYyMDU2ODkyMSwiZXhwIjoxNjIwNTcyNTIxfQ.bnKXRAxe5dcD9CWdytJ32QRFKBIOTBGXlZ4VVuobvvE"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3002/api/subscription-private?limit=10&offset=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"subscription-private"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:3002/api/subscription-private/a9f59f2d-292c-4839-9523-64ba9d883861",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNzhhN2JiLWU0MjUtNDA1NC04NTkwLTEwNzkzY2Y1ZTYyYyIsImlhdCI6MTYyMDczMTE1MywiZXhwIjoxNjIwNzM0NzUzfQ.4VvgfohKralSD82-S9Xdr3f47YXVPI1w7lZkf6dH0Vo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "x-api-key",
+										"value": "123456"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNzhhN2JiLWU0MjUtNDA1NC04NTkwLTEwNzkzY2Y1ZTYyYyIsImlhdCI6MTYyMDU2ODkyMSwiZXhwIjoxNjIwNTcyNTIxfQ.bnKXRAxe5dcD9CWdytJ32QRFKBIOTBGXlZ4VVuobvvE"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3002/api/subscription-private/a9f59f2d-292c-4839-9523-64ba9d883861",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"subscription-private",
+										"a9f59f2d-292c-4839-9523-64ba9d883861"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:3002/api/subscription-private/send-emails/123456",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "x-api-key",
+										"value": "123456"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ODBhMWRlLTRmNzEtNDQxMi1hOWM0LTMwMDk0YTA1MTMzNyIsImlhdCI6MTYyMDczMDQ4MCwiZXhwIjoxNjIwNzM0MDgwfQ.bxea87Q8Ow4FtL9aF8JcSYzrtD3OFF8rvRoApJax1LQ"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3002/api/subscription-private/send-emails/123456",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"subscription-private",
+										"send-emails",
+										"123456"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhNzhhN2JiLWU0MjUtNDA1NC04NTkwLTEwNzkzY2Y1ZTYyYyIsImlhdCI6MTYyMDU2ODkyMSwiZXhwIjoxNjIwNTcyNTIxfQ.bnKXRAxe5dcD9CWdytJ32QRFKBIOTBGXlZ4VVuobvvE",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

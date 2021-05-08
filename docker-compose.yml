@@ -1,0 +1,17 @@
+version: '2'
+services:
+  nest:
+    build: .
+    container_name: gateway
+
+    volumes:
+      - ./src:/app/src
+      - .env:/app/.env
+    ports:
+      - 3002:3002
+    networks:
+      - expose_apis
+
+networks:
+  expose_apis:
+    name: expose_apis
